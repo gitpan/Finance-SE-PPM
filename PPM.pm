@@ -2,7 +2,7 @@
 #
 #   Finance::SE::PPM.pm - A module for fetching account information from the swedish PPM
 #
-#   $Id: PPM.pm,v 1.1.1.1 2004/11/26 14:43:39 erwan Exp $
+#   $Id: PPM.pm,v 1.2 2004/11/30 08:06:25 erwan Exp $
 #  
 #   Erwan Lemonnier - 2004
 #
@@ -50,7 +50,7 @@ our %EXPORT_TAGS = ( 'all' => [ qw() ] );
 our @EXPORT_OK   = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT      = qw();
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 #---------------------------------------------------------------------
 #
@@ -113,7 +113,7 @@ sub _init_xpath {
 #
 # parameters: personnummer -> pnr
 #             pincode -> pin
-#             verbose -> int
+#             debug -> int
 
 sub new {
     my($class,%args) = @_;
@@ -560,7 +560,7 @@ Finance::SE::PPM - Retrieve a person's account status from the Swedish PPM
 
     $ppm->setProxy('proxy:8080');  # if required
     $ppm->fetchAccountStatus();
-    print Dumper($ppm->getAccountFunds();
+    print Dumper($ppm->getAccountFunds());
 
 =head1 DESCRIPTION
 
@@ -577,7 +577,7 @@ snapshot of a person's holdings in form of shares in various funds at a given ti
 PPM has a web site (www.ppm.nu) where one's account can be monitored and fund 
 transactions planned. This web site requires some credentials for login.
 
-Finance::SE::PPM offers an object oriented interface for performing most of the 
+Finance::SE::PPM offers an object oriented interface to performing most of the 
 fund related transactions available on PPM's web site. It is basically a wrapper 
 around PPM's web portal and is designed to be integrated into some more general
 account monitoring and managing tool.
@@ -586,9 +586,15 @@ account monitoring and managing tool.
 
 Finance::SE::PPM requires the following modules:
 
-Crypt::SSLeay;
-Class::XPath
-HTTP::TreeBuilder
+    Crypt::SSLeay
+    Class::XPath
+    HTTP::TreeBuilder
+
+=head1 STATUS
+
+This module is still under development, and should be handled as fragile beta code.
+So far only functions related to retrieving an account status are implemented.
+Functions to handle fond profile modification are still to come.
 
 =head1 API
 
@@ -762,7 +768,7 @@ You must have called B<fetchAccountStatus> first.
 =head1 EXAMPLE
 
 See the script I<myppmtoday.pl> distributed together with Finance::SE::PPM.
-Run './myppmtoday.lp -h' to get some help.
+Run './myppmtoday.pl -h' to get some help.
 
 =head1 BUGS
 
