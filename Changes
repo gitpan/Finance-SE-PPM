@@ -1,0 +1,7 @@
+Revision history for Perl extension Finance::PPM.
+
+0.01  Thu Sep 30 14:17:45 2004
+	- original version; created by h2xs 1.22 with options
+		-A -X -n Finance::PPM
+        - works properly on linux Gentoo r6 
+        - functions for changing fund profile not yet implemented
