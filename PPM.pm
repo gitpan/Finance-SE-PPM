@@ -2,7 +2,7 @@
 #
 #   Finance::SE::PPM.pm - A module for fetching account information from the swedish PPM
 #
-#   $Id: PPM.pm,v 1.2 2004/11/30 08:06:25 erwan Exp $
+#   $Id: PPM.pm,v 1.3 2008-08-26 10:30:35 erwan Exp $
 #  
 #   Erwan Lemonnier - 2004
 #
@@ -11,6 +11,8 @@
 # TODO: parse amount not yet invested while changing fund profile
 
 package Finance::SE::PPM;
+
+die "Do NOT use this module";
 
 # Note: Crypt::SSLeay requires:
 #
@@ -50,7 +52,7 @@ our %EXPORT_TAGS = ( 'all' => [ qw() ] );
 our @EXPORT_OK   = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT      = qw();
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 #---------------------------------------------------------------------
 #
@@ -552,17 +554,12 @@ Finance::SE::PPM - Retrieve a person's account status from the Swedish PPM
 
 =head1 SYNOPSIS
 
-    use Data::Dumper;
-    use Finance::SE::PPM;
-
-    my $ppm = new Finance::SE::PPM(personnummer => '197805021025',
-                                   pincode => '45892');
-
-    $ppm->setProxy('proxy:8080');  # if required
-    $ppm->fetchAccountStatus();
-    print Dumper($ppm->getAccountFunds());
-
 =head1 DESCRIPTION
+
+DO NOT USE THIS MODULE!
+IT DOES NOT WORK AND WILL NOT BE FIXED!
+
+---------------
 
 Finance::SE::PPM provides a simple interface to retrieve the state of a
 pension saver's account in the Swedish PPM system.
@@ -580,7 +577,7 @@ transactions planned. This web site requires some credentials for login.
 Finance::SE::PPM offers an object oriented interface to performing most of the 
 fund related transactions available on PPM's web site. It is basically a wrapper 
 around PPM's web portal and is designed to be integrated into some more general
-account monitoring and managing tool.
+Âaccount monitoring and managing tool.
 
 =head1 REQUIREMENTS
 

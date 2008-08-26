@@ -11,3 +11,6 @@ Revision history for Perl extension Finance::PPM.
 
 0.03  2004-11-30
         - fixed a number of typo
+
+0.04  2008-08-26
+        - killed for ever
